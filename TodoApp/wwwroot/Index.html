@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>To-do CRUD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <h1>To-do CRUD</h1>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Add</h3>
+            <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+                <label>Name</label>
+                <input type="text" class="form-control" id="add-name" placeholder="New to-do">
+                <input type="submit" class="btn btn-primary" value="Add">
+            </form>
+        </div>
+
+        <div class="col-sm">
+            <div id="editForm">
+                <h3>Edit</h3>
+                <form action="javascript:void(0);" onsubmit="updateItem()">
+                    <input type="hidden" class="form-control" id="edit-id">
+                    <label>Is Complete</label>
+                    <input type="checkbox" class="form-check" id="edit-isComplete">
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="edit-name">
+                    <input type="submit" class="btn btn-success" value="Save">
+                    <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+                </form>
+            </div>
+
+        </div>
+
+        <p id="counter"></p>
+
+        <div class="col-sm">
+            <table class="table table-striped">
+                <tr>
+                    <th>Is Complete?</th>
+                    <th>Name</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tbody id="todos"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getItems();
+    </script>
+</body>
+</html>
